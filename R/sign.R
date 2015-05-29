@@ -68,20 +68,21 @@ function(id, op, bucket, path, header = character(), content = character(), secr
 signString =
 function(str, key, base64 = TRUE, perl = TRUE)
 {
-  perl.exe = getOption("perl")
-  if(is.null(perl.exe))
-     perl.exe = "perl"
+  #perl.exe = getOption("perl")
+  #if(is.null(perl.exe))
+  #   perl.exe = "perl"
   
-  if(is.character(perl)) {
-    perl.exe = perl
-    perl = TRUE
-  }
+  #if(is.character(perl)) {
+  #  perl.exe = perl
+  #  perl = TRUE
+  #}
     
   if(perl) {
-    sign.pl = system.file("sign.pl", package = "RAmazonS3")
-    cmd = sprintf("%s %s '%s' '%s'", perl.exe, sign.pl, key, str)
-    ans = system(cmd, intern = TRUE)
-    return(ans)
+  #  sign.pl = system.file("sign.pl", package = "RAmazonS3")
+  #  cmd = sprintf("%s %s '%s' '%s'", perl.exe, sign.pl, key, str)
+  #  ans = system(cmd, intern = TRUE)
+  ans = hmac_sha1(key,str)
+  return(ans)
   }
 
   

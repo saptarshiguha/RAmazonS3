@@ -7,5 +7,5 @@ Description: This is a package the provides interfaces
 SystemDepends: perl, Digest::SHA1_HMAC, MIME::Base64
 Author: Duncan Temple Lang, Roger Peng
 Maintainer: Duncan Temple Lang <duncan@r-project.org>
-Imports: RCurl, XML, methods, digest
+Imports: RCurl, XML, methods, digest, httr
 License: BSD
